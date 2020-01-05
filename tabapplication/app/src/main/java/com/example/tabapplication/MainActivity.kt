@@ -50,10 +50,6 @@ class MainActivity : AppCompatActivity() {
 //                .setAction("Action", null).show()
 //        }
 
-
-
-
-
     }
 
     override fun setRequestedOrientation(requestedOrientation: Int) {

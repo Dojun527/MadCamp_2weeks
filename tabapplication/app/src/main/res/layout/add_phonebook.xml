@@ -22,17 +22,6 @@
             android:hint="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-<!--        <EditText-->
-<!--            android:text="FirstName:"-->
-<!--            android:textSize="15sp"-->
-<!--            android:id="@+id/txtFirstName"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_marginLeft="30dp"-->
-<!--            android:layout_marginRight="30dp"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:inputType="text|textPersonName" />-->
 
         <EditText
             android:id="@+id/txtName"

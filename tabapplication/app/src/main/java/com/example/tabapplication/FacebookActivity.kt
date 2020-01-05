@@ -42,7 +42,6 @@ class FacebookActivity : AppCompatActivity() {
                         finish()
                     }
 
-
                     override fun onCancel() {
                         Log.d("MainActivity", "Facebook onCancel.")
 
