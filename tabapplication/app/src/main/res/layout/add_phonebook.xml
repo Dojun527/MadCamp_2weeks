@@ -18,13 +18,26 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
+            android:text = "Phone Number"
             android:hint="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+<!--        <EditText-->
+<!--            android:text="FirstName:"-->
+<!--            android:textSize="15sp"-->
+<!--            android:id="@+id/txtFirstName"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:inputType="text|textPersonName" />-->
+
         <EditText
-            android:text="FirstName:"
+            android:id="@+id/txtName"
+            android:text="Name:"
             android:textSize="15sp"
-            android:id="@+id/txtFirstName"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"
@@ -34,21 +47,9 @@
             android:inputType="text|textPersonName" />
 
         <EditText
-            android:text="LirstName:"
-            android:textSize="15sp"
-            android:id="@+id/txtLastName"
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_weight="1"
-            android:inputType="text|textPersonName" />
-
-        <EditText
+            android:id="@+id/txtPhoneNumber"
             android:text="Phonenumber:"
             android:textSize="13sp"
-            android:id="@+id/txtPhoneNumber"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="30dp"

@@ -1,15 +1,17 @@
 package com.example.tabapplication
 
-
-
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tabapplication.ui.main.adapter.SectionsPagerAdapter
+import com.facebook.login.LoginManager
 import java.lang.AssertionError
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        var btn_custom_logout = findViewById(R.id.btn_logout) as Button
+
+        btn_custom_logout.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                LoginManager.getInstance().logOut()
+                val intent =
+                    Intent(applicationContext, FacebookActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        })
+
+
         val sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
@@ -33,6 +49,11 @@ class MainActivity : AppCompatActivity() {
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()
 //        }
+
+
+
+
+
     }
 
     override fun setRequestedOrientation(requestedOrientation: Int) {

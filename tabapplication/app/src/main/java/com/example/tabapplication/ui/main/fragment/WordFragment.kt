@@ -64,6 +64,7 @@ class WordFragment : Fragment() {
 
         )
 
+
         recyclerView = view!!.findViewById(R.id.my_recycler_view)
         adapter = WordListAdapter(wordArrayList)
 
