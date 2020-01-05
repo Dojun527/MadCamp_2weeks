@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,12 +20,23 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tabapplication.R
+import com.example.tabapplication.ui.main.activity.PhoneAddActivity
+import com.example.tabapplication.ui.main.activity.RESULT_CODE
+import com.example.tabapplication.ui.main.activity.RESULT_NUM
 import com.example.tabapplication.ui.main.adapter.NumberAdapter
 import com.example.tabapplication.ui.main.adapter.SwipeToDeleteCallback
+import com.example.tabapplication.ui.main.adapter.Word
+import com.example.tabapplication.ui.main.adapter.WordListAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * A simple [Fragment] subclass.
  */
+
+
+private var isPermission = true
+
+
 class NumberFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -69,8 +81,37 @@ class NumberFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
 
+
+        val pFab: FloatingActionButton = view.findViewById(R.id.addphoneButton)
+        pFab.setOnClickListener {
+            val addintent = Intent(activity, PhoneAddActivity::class.java)
+
+            startActivityForResult(addintent,0)
+        }
         return view
     }
+
+    override fun  onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == RESULT_NUM){
+            val name = data!!.getStringExtra("name")
+            val phonenumber = data!!.getStringExtra("phonenumber")
+            if(name == "" || phonenumber == ""){
+                Toast.makeText(context, "Please write something", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                /*
+                 * 여기에 서버통해서 보내기
+                 *
+                 */
+//                wordArrayList.add(Word(vocabulary, meaning))
+//                adapter = WordListAdapter(wordArrayList)
+//                recyclerView!!.adapter = adapter
+            }
+        }
+    }
+
+
 
     data class Contact(val name: String, val phoneNumber: String)
 

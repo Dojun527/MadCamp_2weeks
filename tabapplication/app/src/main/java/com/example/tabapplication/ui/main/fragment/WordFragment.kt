@@ -113,7 +113,6 @@ class WordFragment : Fragment() {
         }
 
         addFab.setOnClickListener{
-
 //            wordArrayList.add(Word("A", "B"))
 //            adapter = ListAdapter(wordArrayList)
 //            recyclerView.adapter = adapter
@@ -126,28 +125,26 @@ class WordFragment : Fragment() {
 //            wordArrayList.add(Word(vocabulary, meaning))
 //            adapter = ListAdapter(wordArrayList)
 //            recyclerView.adapter = adapter
-
         }
-
 
         return view
     }
 
-    override fun  onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == RESULT_CODE){
-            val vocabulary = data!!.getStringExtra("vocabulary")
-            val meaning = data!!.getStringExtra("meaning")
-            if(vocabulary == "" || meaning == ""){
-                Toast.makeText(context, "Please write something", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                wordArrayList.add(Word(vocabulary, meaning))
-                adapter = WordListAdapter(wordArrayList)
-                recyclerView!!.adapter = adapter
-            }
-        }
-    }
+//    override fun  onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if(resultCode == RESULT_CODE){
+//            val vocabulary = data!!.getStringExtra("vocabulary")
+//            val meaning = data!!.getStringExtra("meaning")
+//            if(vocabulary == "" || meaning == ""){
+//                Toast.makeText(context, "Please write something", Toast.LENGTH_SHORT).show()
+//            }
+//            else {
+//                wordArrayList.add(Word(vocabulary, meaning))
+//                adapter = WordListAdapter(wordArrayList)
+//                recyclerView!!.adapter = adapter
+//            }
+//        }
+//    }
 
 
 }

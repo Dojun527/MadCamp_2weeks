@@ -14,7 +14,6 @@ import com.example.tabapplication.R
 import kotlinx.android.synthetic.main.word_quiz.*
 
 const val RESULT_CODE = 1
-
 class WordAddActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
