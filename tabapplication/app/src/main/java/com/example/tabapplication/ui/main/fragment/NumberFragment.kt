@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -81,13 +82,12 @@ class NumberFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
 
-
         val pFab: FloatingActionButton = view.findViewById(R.id.addphoneButton)
         pFab.setOnClickListener {
             val addintent = Intent(activity, PhoneAddActivity::class.java)
-
             startActivityForResult(addintent,0)
         }
+
         return view
     }
 
@@ -114,7 +114,6 @@ class NumberFragment : Fragment() {
 
 
     data class Contact(val name: String, val phoneNumber: String)
-
     fun Context.fetchAllContacts(): MutableList<Contact> {
         contentResolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
@@ -137,9 +136,15 @@ class NumberFragment : Fragment() {
                         builder.add(Contact(name, phoneNumber))
                     }
                 }
+//                for (i in builder){
+//                    Log.v("Contactlist", i.name)
+//                }
+
+                Log.e("Contactlist","$builder")
                 return builder
             }
     }
+
 
     fun getPermissionToReadUserContacts() {
         if (ContextCompat.checkSelfPermission(
@@ -172,8 +177,6 @@ class NumberFragment : Fragment() {
         }
     }
 
-
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
@@ -197,7 +200,6 @@ class NumberFragment : Fragment() {
                 Toast.makeText(context, "Write Contacts permission denied", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
     fun layContactsList() {

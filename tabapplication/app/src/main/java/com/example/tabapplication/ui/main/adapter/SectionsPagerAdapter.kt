@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.tabapplication.ui.main.fragment.GalleryFragment
+//import com.example.tabapplication.ui.main.fragment.MusicFragment
 import com.example.tabapplication.ui.main.fragment.WordFragment
 import com.example.tabapplication.ui.main.fragment.NumberFragment
 
