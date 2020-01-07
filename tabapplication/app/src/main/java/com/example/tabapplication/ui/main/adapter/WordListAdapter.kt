@@ -11,12 +11,16 @@ import kotlinx.android.synthetic.main.item_dictionary.view.*
 
 class WordListAdapter(val context:  ArrayList<Word>): RecyclerView.Adapter<WordListAdapter.UserViewHolder>() {
 
+
+
     override fun getItemCount(): Int {return context.size}
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.userNameText.text =
             context[position].vocabulary
         holder.userPhoneText.text =
             context[position].meaning
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -35,4 +39,10 @@ class WordListAdapter(val context:  ArrayList<Word>): RecyclerView.Adapter<WordL
         val userNameText = root.eng_word
         val userPhoneText = root.kor_word
     }
+
+
+
+
+
+
 }

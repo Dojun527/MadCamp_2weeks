@@ -8,10 +8,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -22,6 +18,7 @@ import com.example.tabapplication.ui.main.adapter.WordListAdapter
 import com.example.tabapplication.ui.main.adapter.Word
 
 import android.R.layout.simple_list_item_multiple_choice
+import android.widget.*
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.for_mylist.*
@@ -34,13 +31,12 @@ class ForMyWordActivity : AppCompatActivity(){
     lateinit var recyclerView: RecyclerView
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.for_mylist)
 
 
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.RecyclerView)
         adapter = WordListAdapter(wordArrayList)
 
         var viewManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
@@ -51,17 +47,20 @@ class ForMyWordActivity : AppCompatActivity(){
         val btn_Add: Button = findViewById(R.id.btn_add)
         val btn_SelectAll: Button = findViewById(R.id.btn_allword)
 
+
+
+
+
 //Add버튼
         btn_Add.setOnClickListener {
-            val intent = Intent(this, WordQuizActivity::class.java)
-            intent.putParcelableArrayListExtra("wordArray", wordArrayList)
-            startActivity(intent)
+
         }
+
 
 //SelectAll버튼
         btn_SelectAll.setOnClickListener {
-            val addintent = Intent(this, WordAddActivity::class.java)
-            startActivityForResult(addintent, 0)
+//            val addintent = Intent(this, WordAddActivity::class.java)
+//            startActivityForResult(addintent, 0)
         }
     }
 

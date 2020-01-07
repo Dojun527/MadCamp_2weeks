@@ -6,13 +6,18 @@
     android:layout_width="match_parent">
 
 
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/List_view"
+        android:id="@+id/RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="680dp"
         android:layout_below="@id/appBarLayout"
         android:padding="10dp"
         android:scrollbars="vertical">
+
+
+
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
