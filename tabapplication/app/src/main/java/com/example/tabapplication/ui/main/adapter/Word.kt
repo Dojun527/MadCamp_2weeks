@@ -4,8 +4,8 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Word(
-    var vocabulary: String,
-    var meaning: String
+    var vocabulary: String?,
+    var meaning: String?
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString().toString(),

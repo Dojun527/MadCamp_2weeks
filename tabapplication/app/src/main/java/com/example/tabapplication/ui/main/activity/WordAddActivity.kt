@@ -1,5 +1,7 @@
 package com.example.tabapplication.ui.main.activity
 
+//add 버튼 눌렀을 때 새로운 단어 직접 입력해서 추가
+
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -30,6 +32,9 @@ class WordAddActivity: AppCompatActivity() {
             val intent: Intent = intent
             intent.putExtra("vocabulary", vocabulary)
             intent.putExtra("meaning", meaning)
+
+//            intent.putParcelableArrayListExtra("arrayList",)
+
             setResult(RESULT_CODE, intent)
             finish()
         }

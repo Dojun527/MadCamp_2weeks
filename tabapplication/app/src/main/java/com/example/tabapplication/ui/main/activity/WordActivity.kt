@@ -1,5 +1,6 @@
 package com.example.tabapplication.ui.main.activity
 
+//단어장 눌렀을 때
 
 import android.content.Intent
 import android.os.Bundle
@@ -24,13 +25,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 /**
  * A simple [Fragment] subclass.
  */
+
 class WordActivity :AppCompatActivity() {
 
     var wordArrayList: ArrayList<Word> = ArrayList()
     var adapter: WordListAdapter = WordListAdapter(wordArrayList)
     lateinit var recyclerView: RecyclerView
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_word)
 
@@ -91,31 +93,37 @@ class WordActivity :AppCompatActivity() {
                 addLayout.startAnimation(showLayoutAnim)
             }
         }
-//quiz버튼
 
+//quiz버튼
         quizFab.setOnClickListener {
             val intent = Intent(this, WordQuizActivity::class.java)
             intent.putParcelableArrayListExtra("wordArray", wordArrayList)
             startActivity(intent)
         }
-//add버튼
 
+//add버튼
         addFab.setOnClickListener {
-            wordArrayList.add(Word("A", "B"))
-            adapter = WordListAdapter(wordArrayList)  //ListAdapter(wordArrayList)
-            recyclerView.adapter = adapter
             val addintent = Intent(this, WordAddActivity::class.java)
             startActivityForResult(addintent, 0)
-            Toast.makeText(this, "AAA", Toast.LENGTH_LONG)
-            val main = Intent(this, WordFragment::class.java)
-            val vocabulary = intent.getStringExtra("vocabulary")
-            val meaning = intent.getStringExtra("meaning")
-            wordArrayList.add(Word(vocabulary, meaning))
-            adapter = WordListAdapter(wordArrayList)
-            recyclerView.adapter = adapter
         }
+    }
 
+    override fun  onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == RESULT_CODE){
+            val vocabulary = data!!.getStringExtra("vocabulary")
+            val meaning = data!!.getStringExtra("meaning")
 
+            if(vocabulary == "" || meaning == ""){
+                Toast.makeText(this, "Please write something", Toast.LENGTH_SHORT).show()
+            }
+
+            else {
+                wordArrayList.add(Word(vocabulary, meaning))
+                adapter = WordListAdapter(wordArrayList)
+                recyclerView!!.adapter = adapter
+            }
+        }
     }
 }
 

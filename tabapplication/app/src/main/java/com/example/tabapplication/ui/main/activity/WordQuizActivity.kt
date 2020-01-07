@@ -1,5 +1,7 @@
 package com.example.tabapplication.ui.main.activity
 
+//퀴즈 버튼 눌렀을  때
+
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -14,12 +16,17 @@ import kotlin.random.Random
 
 class WordQuizActivity : AppCompatActivity() {
     var isCorrect = true
-    var wrongwordArrayList: ArrayList<Word> = ArrayList()
     var check : Int = 0
+
+    companion object{
+        var wrongwordArrayList: ArrayList<Word> = ArrayList() //틀린단어들의 list
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.word_quiz)
+
 
         var wordArrayList = intent. getParcelableArrayListExtra<Word>("wordArray")
         //wrongwordArrayList = intent. getParcelableArrayListExtra<Word>("wrongwordArray")
@@ -28,9 +35,10 @@ class WordQuizActivity : AppCompatActivity() {
         val totalNum = 5
         var problemNum = intent.getIntExtra("problemNum", totalNum)
         var correctNum = intent.getIntExtra("correctNum",0)
+//        Log.e("list", "$wordArrayList")
         val wordNum = wordArrayList.size
         val rnd = Random
-        var num = 0
+        var num : Int= 0
         num = if(wordNum == 1)
             0
         else
@@ -80,9 +88,9 @@ class WordQuizActivity : AppCompatActivity() {
             }
 
             else {
-//                intent.putExtra("problemNum", problemNum - 1)
-//                intent.putExtra("correctNum", correctNum + 1)
-//                intent.putExtra("wrongwordArray",wrongwordArrayList)
+                intent.putExtra("problemNum", problemNum - 1)
+                intent.putExtra("correctNum", correctNum + 1)
+                intent.putExtra("wordArray",wordArrayList)
                 startActivity(intent)
             }
         }
@@ -103,7 +111,8 @@ class WordQuizActivity : AppCompatActivity() {
                 dialogFinish.show()
             }
             else {
-                intent.putExtra("problemNum", problemNum - 1)
+                intent.putExtra("problemNum", problemNum
+                        - 1)
                 intent.putExtra("correctNum", correctNum)
                 intent.putExtra("wordArray",wordArrayList)
 //                intent.putExtra("WrongwordArray", correctNum)
@@ -115,7 +124,6 @@ class WordQuizActivity : AppCompatActivity() {
         val dialog2: AlertDialog = builder2.create()
 
 
-
         val submit: ImageButton = findViewById(R.id.submit)
         submit.setOnClickListener{
 
@@ -125,45 +133,26 @@ class WordQuizActivity : AppCompatActivity() {
 
             isCorrect = meanans == str
 
-            if(isCorrect){
+            if(isCorrect){ // 정답
                 dialog1.show()
+
             }
-
-            else{
-                var index : Int
-
-                if(check == 0){
-                    wrongwordArrayList.add(wordArrayList[num])
-                    check++
+            else{  //오답
+                if(wrongwordArrayList.size == 0){
+                    wrongwordArrayList.add(Word(vocabans, meanans))
                 }
 
                 else {
-                    for (index in 0..wrongwordArrayList.size) {
-                        if(wrongwordArrayList[index].vocabulary == vocabans){
-                            break
-                        }
-
-                        else {
-                            if(index == wrongwordArrayList.size){
-                                wrongwordArrayList.add(wordArrayList[num])
-                            }
-                            else
-                                continue
-                        }
+                    if(wrongwordArrayList.contains(Word(vocabans,meanans))){
                     }
 
-                }
-                var num :Int = 0
-                Log.v("wronglist", wrongwordArrayList[0].vocabulary)
-                num++
+                    else{
+                        wrongwordArrayList.add(Word(vocabans, meanans))
 
+                    }
+                }
                 dialog2.show()
             }
-
         }
-
-
     }
-
-
 }

@@ -51,6 +51,10 @@
         <activity android:name=".ui.main.activity.WordActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name=".ui.main.activity.ForMyWordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
 
     </application>
 

@@ -27,7 +27,7 @@
         android:layout_marginRight="30dp">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/wrongplusFab"
+            android:id="@+id/plusFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -72,41 +72,5 @@
             app:backgroundTint="#ffe4e1"
             app:elevation="0dp"/>
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/addLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity = "bottom|end"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="170dp"
-        android:layout_marginRight="30dp"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text ="Add"
-            android:textColor="@color/cardview_dark_background"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp"
-            android:clickable="false"
-            android:src="@android:drawable/ic_menu_edit"
-            app:backgroundTint="#ffe4e1"
-            app:elevation="0dp"/>
-    </LinearLayout>
-
 
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
