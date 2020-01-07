@@ -28,9 +28,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class WordActivity :AppCompatActivity() {
 
-    var wordArrayList: ArrayList<Word> = ArrayList()
+
+
+    companion object{
+        var wordArrayList: ArrayList<Word> = ArrayList() //틀린단어들의 list
+    }
+
     var adapter: WordListAdapter = WordListAdapter(wordArrayList)
     lateinit var recyclerView: RecyclerView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
