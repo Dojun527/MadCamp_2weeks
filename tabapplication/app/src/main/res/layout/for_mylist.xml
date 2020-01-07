@@ -7,12 +7,13 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
+        android:id="@+id/List_view"
         android:layout_width="match_parent"
         android:layout_height="680dp"
         android:layout_below="@id/appBarLayout"
         android:padding="10dp"
-        android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+        android:scrollbars="vertical">
+    </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,13 +44,6 @@
             android:text="Select All" />
 
     </LinearLayout>
-
-
-
-
-
-
-
 
 </FrameLayout>
 
