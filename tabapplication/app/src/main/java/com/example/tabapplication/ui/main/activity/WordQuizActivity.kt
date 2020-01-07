@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tabapplication.R
@@ -13,13 +14,18 @@ import kotlin.random.Random
 
 class WordQuizActivity : AppCompatActivity() {
     var isCorrect = true
+    var wrongwordArrayList: ArrayList<Word> = ArrayList()
+    var check : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.word_quiz)
 
         var wordArrayList = intent. getParcelableArrayListExtra<Word>("wordArray")
-        val totalNum = 3
+        //wrongwordArrayList = intent. getParcelableArrayListExtra<Word>("wrongwordArray")
+
+
+        val totalNum = 5
         var problemNum = intent.getIntExtra("problemNum", totalNum)
         var correctNum = intent.getIntExtra("correctNum",0)
         val wordNum = wordArrayList.size
@@ -36,6 +42,7 @@ class WordQuizActivity : AppCompatActivity() {
 
         val vocab = findViewById<TextView>(R.id.vocab)
         var vocabans = wordArrayList[num].vocabulary
+
         vocab.text = vocabans
         var meanans = wordArrayList[num].meaning
 
@@ -45,7 +52,6 @@ class WordQuizActivity : AppCompatActivity() {
         alpha.alpha = 50
 
         //Dialog 형성
-
         val builderFinish: AlertDialog.Builder = AlertDialog.Builder(this, R.style.CorrectDialog)
         builderFinish.setPositiveButton(
             "OK"
@@ -72,13 +78,15 @@ class WordQuizActivity : AppCompatActivity() {
                 val dialogFinish = builderFinish.create()
                 dialogFinish.show()
             }
+
             else {
-                intent.putExtra("problemNum", problemNum - 1)
-                intent.putExtra("correctNum", correctNum + 1)
-                intent.putExtra("wordArray",wordArrayList)
+//                intent.putExtra("problemNum", problemNum - 1)
+//                intent.putExtra("correctNum", correctNum + 1)
+//                intent.putExtra("wrongwordArray",wrongwordArrayList)
                 startActivity(intent)
             }
         }
+
         builder1.setTitle("Correct!").setMessage("Go to the next problem")
         val dialog1: AlertDialog = builder1.create()
 
@@ -98,6 +106,8 @@ class WordQuizActivity : AppCompatActivity() {
                 intent.putExtra("problemNum", problemNum - 1)
                 intent.putExtra("correctNum", correctNum)
                 intent.putExtra("wordArray",wordArrayList)
+//                intent.putExtra("WrongwordArray", correctNum)
+
                 startActivity(intent)
             }
         }
@@ -118,11 +128,40 @@ class WordQuizActivity : AppCompatActivity() {
             if(isCorrect){
                 dialog1.show()
             }
+
             else{
+                var index : Int
+
+                if(check == 0){
+                    wrongwordArrayList.add(wordArrayList[num])
+                    check++
+                }
+
+                else {
+                    for (index in 0..wrongwordArrayList.size) {
+                        if(wrongwordArrayList[index].vocabulary == vocabans){
+                            break
+                        }
+
+                        else {
+                            if(index == wrongwordArrayList.size){
+                                wrongwordArrayList.add(wordArrayList[num])
+                            }
+                            else
+                                continue
+                        }
+                    }
+
+                }
+                var num :Int = 0
+                Log.v("wronglist", wrongwordArrayList[0].vocabulary)
+                num++
+
                 dialog2.show()
             }
 
         }
+
 
     }
 

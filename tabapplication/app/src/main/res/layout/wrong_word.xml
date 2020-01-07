@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBarLayout"
+        android:padding="10dp"
+        android:scrollbars="vertical">
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:id="@+id/plusLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity = "bottom|end"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/wrongplusFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/softGray"
+            app:elevation="0dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/quizLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity = "bottom|end"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="30dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text ="Quiz"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/quizFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:clickable="false"
+            android:src="@android:drawable/ic_media_play"
+            app:backgroundTint="#ffe4e1"
+            app:elevation="0dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity = "bottom|end"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="170dp"
+        android:layout_marginRight="30dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text ="Add"
+            android:textColor="@color/cardview_dark_background"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:clickable="false"
+            android:src="@android:drawable/ic_menu_edit"
+            app:backgroundTint="#ffe4e1"
+            app:elevation="0dp"/>
+    </LinearLayout>
+
+
+</com.google.android.material.circularreveal.CircularRevealRelativeLayout>

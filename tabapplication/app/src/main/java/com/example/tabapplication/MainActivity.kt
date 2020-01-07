@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         tabs.getTabAt(0)?.setIcon(R.drawable.ic_perm_identity_24px)
         tabs.getTabAt(1)?.setIcon(R.drawable.ic_photo_library_24px)
-        tabs.getTabAt(2)?.setIcon(R.drawable.ic_music_note_black_24dp)
+        tabs.getTabAt(2)?.setIcon(R.drawable.ic_book_black_24dp)
         //val fab: FloatingActionButton = findViewById(R.id.fab)
 
 //        fab.setOnClickListener { view ->

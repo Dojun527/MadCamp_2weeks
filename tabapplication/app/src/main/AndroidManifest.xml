@@ -32,7 +32,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="unspecified">
         </activity>
-<activity android:name=".ui.main.activity.WordQuizActivity"
+        <activity android:name=".ui.main.activity.WordQuizActivity"
     android:label="Quiz"
     android:theme="@style/AppTheme"
     />
@@ -40,6 +40,15 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity android:name=".ui.main.activity.PhoneAddActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.main.activity.MyWordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.main.activity.WrongWordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.main.activity.WordActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
 
